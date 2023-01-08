@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Times
+{% endblock %}
+
+{% block log %}
+    {% if user %}
+        <a href="/jogadores/{{ username }}"><li>{{ username }}</li></a>
+    {% else %}
+        <a href="/login"><li><img class="login"src="static/enter.png"></li></a>
+    {% endif %}
+{% endblock %}
+
+{% block logout %}
+{% if user %}
+    <a href="/logout"><li><img class="logout-img" src="/static/sair.png"></li></a>
+{% endif %}
+{% endblock %}
+
+
+
+
+{% block body %}
+        <div class="container times-div">
+            <div class="container criar-time">
+                <span class="deseja-criar-time">criar um time</span>
+                <br>
+                <a href="/criartime" class="criar-time-link">Crie aqui</a>
+            </div>
+            {% for row in times %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                    </div>
+                </div>
+            {% endfor %} 
+         </div>
+{% endblock %}

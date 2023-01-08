@@ -1,0 +1,670 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    margin: 0;
+    padding: 0;   
+}
+
+body{
+    overflow-x: hidden;
+    background-image: url('/static/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+    background:#c96c2d;
+}
+
+nav a{
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover{
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.7;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    margin-top: 15px;
+}
+
+.nav-list li{
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+.mobile-menu{
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu div{
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+
+@media (max-width: 999px){
+    body {
+        overflow-x: hidden;
+    }
+    
+    .nav-list{
+        position: absolute;
+        top: 8vh;
+        right: 0;
+        width: 50vw;
+        height: 92vh;
+        background: #c96c2d;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+    }
+
+    .navlist li{
+        margin-left: 0;
+        opacity: 0;
+    }
+
+    .mobile-menu{
+        display: block;
+    }
+}
+
+.nav-list.active{
+    transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .mobile-menu.active .line2 {
+    opacity: 0;
+  }
+  
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
+/* NAVBAR */
+
+
+
+
+.main-content{
+    margin: 0;
+    border-color: #3498db;
+}
+
+h4{
+    color: #fff;
+}
+
+h1{
+    color: #fff;
+}
+.login
+{
+    height:22px;
+}
+
+
+.btn_login{
+    position: relative;
+    top: 20px;
+    left: 130px;
+}
+
+.register_btn{
+    text-decoration: underline;
+    color: blue;
+}
+.register_btn:hover{
+    color: blue;
+}
+
+.forgot_btn{
+    text-decoration: underline;
+    color: blue;
+}
+.forgot_btn:hover{
+    color: blue;
+}
+
+.login_container{
+    border-style: solid;
+    width: 400px;
+    height: 300px;
+    margin-top: 100px;
+    background-color: #fff;
+}
+
+.div_login_btns{
+    position: relative;
+    top: 25px;
+}
+
+.login_list{
+    position: relative;
+    top: 10px;
+}
+
+
+.form-register{
+    margin-top: 100px;
+}
+.page{
+    width:100vw;
+    border:1px solid red;
+}
+
+.jogador ul li{
+    color: #fff;
+}
+
+.search_jogador {
+    position: relative;
+    top: 100px;
+    text-align: center;
+}
+
+.searc-players-btn {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 568px;
+  }
+
+.jogadores_query li{
+    color: #fff;
+}
+
+.logout-img{
+    width: 40%;
+}
+
+.categoria{
+    text-align: center;
+}
+.cirat-time-btn{
+    margin: 0;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+}
+.div_register_btns{
+    position: relative;
+    top: 25px;
+}
+.criar_time_container{
+    border-style: solid;
+    width: 361px;
+    height: 280px;
+    margin-top: 50px;
+    background-color: #fff;
+}
+
+.card-img-top{
+    height: 250px;
+}
+
+.card h5{
+    font-size: 15px;
+}
+
+.card-body ul{
+    align-items: center;
+}
+
+.players-cards{
+    display: flex;
+}
+
+.card{
+    margin-right: 50px;
+}
+
+.card-img-top{
+    height: 200px;
+}
+.card-body li{
+    list-style-type: none;
+}
+
+.input-jogadores{
+    width: 500px;
+}
+
+.resultado-pesquisa{
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.criar-time{
+    text-align: right;
+    background-color: #fff;
+    width: 181px;
+    height: 50px;
+    margin-right: 0;
+}
+
+.deseja-criar-time{
+    position: relative;
+    right: 30px;
+}
+
+.criar-time a{
+    text-decoration: underline;
+    color: blue;
+}
+.criar-time-link{
+    position: relative;
+    right: 41px;
+}
+.times-card{
+    margin-top: 50px;
+}
+
+.jogadores-card{
+    margin-right: 16px;
+    margin-top: 25px;
+}
+
+.resultado{
+    color: #fff;
+}
+
+
+.procurar-todos{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 115px;
+    left: 40px;
+    text-align: center;
+}
+
+.input-group{
+    text-align: center;
+}
+
+.form-register{
+    position: relative;
+    top: 0px;
+    border-style: solid;
+    width: 400px;
+    height: 550px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.register-genero{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/* PAGINA DE PERFIL */
+
+.profile-wallpaper{
+    max-width: 100000px;
+    background-image: url('/static/profilewallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 250px;
+}
+
+.profilepage-picture{
+    width: 10%;
+    position: relative;
+    left: 100px;
+    top: 40px;
+}
+
+.profile-name{
+    width: 500px;
+    margin: 0;
+    margin-right: 0;
+    position: relative;
+    left: 325px;
+    top: -133px;
+}
+.profile-usuario{
+    width: 500px;
+    margin: 0;
+    margin-right: 0;
+    position: relative;
+    left: 325px;
+    top: -133px;
+    color: #fff;
+}
+
+.profile-body{
+    margin: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.main_profile_container{
+    border-style: solid;
+    border-width: 1px;
+    width: 400px;
+    height: 320px;
+    margin: 0;
+    background-color: #fff;
+    position: relative;
+    left: 10px;
+}
+
+.lista1-perfil{
+    margin-top: 2px;
+}
+
+.nacionalidade-perfil{
+    position: relative;
+    left: 200px;
+}
+
+.bandeira-nacionalidade-perfil{
+    width: 10%;
+    height: 10%;
+}
+
+.cidade-perfil{
+    position: relative;
+    left: 200px;
+}
+
+.genero-perfil{
+    position: relative;
+    left: 210px;
+}
+
+.idade-perfil{
+    position: relative;
+    left: 280px;
+}
+/* PAGINA DE PERFIL */
+
+
+.times-div{
+    margin-top: 50px;
+    padding: 0;
+}
+
+.jogadores-div{
+    margin-top: 50px;
+    padding: 0;
+}
+
+.alljogadores-div{
+    margin-top: 50px;
+    padding: 0;
+}
+
+.time-div{
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 0;
+}
+
+.jogadores-h1-time-div{
+    width: 500px;
+    margin: 0;
+    margin-right: 0;
+    margin-top: 50px;
+    color: #fff;   
+}
+
+#btn_criar_time{
+    position: relative;
+    right: -91px;
+    margin-top: 10px;   
+}
+
+.jogadores-h1-time-div a{
+    color: white;
+    text-decoration: underline;
+}
+
+.addjogador-register{
+    margin-top: 50px;
+    border-style: solid;
+    width: 400px;
+    height: 205px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.label-add-jogador{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.select-add-jogador{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.addjogador-register h1{
+    margin-top: 20px;
+    color: black;
+}
+
+.add-players-btn{
+    margin-top: 10px;
+}
+
+
+
+.editar-perfil-btn{
+    margin: 0;
+    position: relative;
+    left: 36px;
+}
+
+
+.editar-perfil {
+    position: absolute;
+    top: 330px;
+    width: 100vw;
+    max-width: 10000px;
+}
+
+a.editar-perfil-btn {
+    width: 307px;
+    position: absolute;
+    right: 100px;
+    text-decoration: none;
+}
+
+.editar-perfil-btn a:hover{
+    color: #252525;
+    text-decoration: underline;
+}
+
+.editar-perfil-div{
+    margin-top: 50px;
+    border-style: solid;
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.editar-perfil-div h1{
+    color: #252525;
+    margin-bottom: 25px;
+}
+
+.edit-profile-link a h1{
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: underline;
+}
+
+.edit-profile-link a:hover{
+    color: #252525;
+}
+
+.profile-usuario-edit{
+    width: 500px;
+    margin: 0;
+    margin-right: 0;
+    position: relative;
+    left: 325px;
+    top: -133px;
+    color: red;
+}
+
+.genero-perfil-edit{
+    position: relative;
+    left: 215px;
+    color: red;
+}
+
+.idade-perfil-edit{
+    position: relative;
+    left: 280px;
+    color: red;
+}
+
+.div_editar_usuario{
+    text-align: center;
+    position: relative;
+    top: 25px;
+}
+
+.div_editar_usuario h4{
+    color: #252525;
+}
+
+.usuario-edit{
+    display: flex;
+    position: relative;
+    top: 50px;
+}
+
+.editar-usuario-btn{
+    display: flex;
+    position: relative;
+    top: 50px;
+}
+
+.peso-perfil-edit{
+    position: relative;
+    left: 271px;
+}
+
+.altura-perfil-edit{
+    position: relative;
+    left: 260px;
+}
+
+.peso-perfil{
+    position: relative;
+    left: 271px;
+}
+
+.altura-perfil{
+    position: relative;
+    left: 248px;
+}
+
+.list-group-item a{
+    color: red;
+}
+
+.time-atual-h4{
+    margin: 0;
+    width: 150px;
+    position: relative;
+    left: 511px;
+    top: 30px;
+}
+
+.time-atual-jogador{
+    position: relative;
+    left: 473px;
+    top: -318px;
+}
+
+.times-card-profile{
+    margin: 0;
+}
+
+.etapas-main{
+    margin-top: 50px;
+    width: 1352px;
+    max-width: 10000000px;
+}
+
+.criar_etapa_container{
+    border-style: solid;
+    width: 361px;
+    height: 350px;
+    margin-top: 50px;
+    background-color: #fff;
+}
+
+.card-etapas{
+    width: 243px;
+    margin-bottom: 10px;
+}
+
+.etapa-main-content{
+    margin-top: 50px;
+    padding: 0;
+}
+
+.inscricoesfechadas{
+    text-align: right;
+    background-color: #fff;
+    width: 181px;
+    height: 31px;
+    margin-right: 0;
+}
+
+h5.inscricoesfechadas{
+    margin-left: auto;
+    color: brown;
+}

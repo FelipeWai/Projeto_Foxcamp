@@ -1,0 +1,25 @@
+{% extends "layout.html"%}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block log%}<a href="/login"><li>login</li></a>{% endblock %}
+
+{% block body %}
+    <div class="container addjogador-register">
+        <h1>Adicionar Jogador</h1>
+        <form method="post">
+            <div class="adicionar jogador">
+                    <label for="categoria" class="label-add-jogador">Jogador</label>
+                    <select name="add-jogador" class="select-add-jogador">
+                        {% for row in jogadores %}
+                            <option>{{ row[0] }} </option>
+                        {% endfor %}
+                    </select>
+            </div>
+            <button class="add-players-btn btn btn-success" value="submit"> Adicionar </button>
+        </form>
+    </div>
+
+{% endblock %}

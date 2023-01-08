@@ -1,0 +1,45 @@
+{% extends "layout.html"%}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block log%}<a href="/login"><li>login</li></a>{% endblock %}
+
+{% block body %}
+    <div class="container form-register">
+        <form method="post">
+            <div class="register-genero">
+                <select class="form-select" id="genero" aria-label="Default select example">
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                {{ form.hidden_tag() }}
+                {{ form.email(placeholder="Email", id="email", autocomplete="off", class="form-control mx-auto w-auto") }}
+            </div>
+            <div class="mb-3">
+                {{ form.nome(placeholder="Nome", id="nome", autocomplete="off", autocomplete="off", class="form-control mx-auto w-auto") }}
+            </div>
+            <div class="mb-3">
+                {{ form.sobrenome(placeholder="Sobrenome", id="sobrenome", autocomplete="off", class="form-control mx-auto w-auto") }}
+            </div>
+            <div class="mb-3">
+                {{ form.usuario(placeholder="Usuário", id="usuario", autocomplete="off", class="form-control mx-auto w-auto") }}
+            </div>
+            <div class="mb-3">
+                {{ form.idade(placeholder="Idade", id="idade", autocomplete="off", class="form-control mx-auto w-auto") }}
+            </div>
+            <div class="mb-3">
+                {{ form.senha(placeholder="Senha", id="password", autocomplete="off", class="form-control mx-auto w-auto") }}
+            </div>
+            <div class="mb-3">
+                {{ form.confirmar_senha(placeholder="Confirme a senha", id="confirm_password", autocomplete="off", class="form-control mx-auto w-auto") }}
+            </div>
+            <div class="mb-3">
+                {{form.submit(class="btn_register btn btn-primary")}}
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Jogadores
+{% endblock %}
+
+{% block log %}
+    {% if user %}
+        <a href="/jogadores/{{ username }}"><li>{{ username }}</li></a>
+    {% else %}
+        <a href="/login"><li><img class="login"src="static/enter.png"></li></a>
+    {% endif %}
+{% endblock %}
+
+
+{% block logout %}
+{% if user %}
+    <a href="/logout"><li><img class="logout-img" src="/static/sair.png"></li></a>
+{% endif %}
+{% endblock %}
+
+
+
+
+{% block body %}
+    <div class="container jogadores-div">
+        <div class="search_jogador">
+            <h1>PROCURE PELO JOGADOR!</h1>
+            <form method="post">
+                <div class="input-group mb-3">
+                    {{ form.hidden_tag() }}
+                    {{ form.nome(class="input-jogadores form-control", placeholder="Nome do jogador") }}
+                </div>
+                <div class="input-group mb-3">
+                    {{ form.submit(class="searc-players-btn btn btn-info") }}
+                </div>
+            </form>
+        </div>
+        <div class="procurar-todos">
+            <form action="/alljogadores">
+                <button class="search-all-players-btn btn btn-info" value="submit"> Ver todos </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Jogadores
+{% endblock %}
+
+{% block log %}
+    {% if user %}
+        <a href="/jogadores/{{ username }}"><li>{{ username }}</li></a>
+    {% else %}
+        <a href="/login"><li><img class="login"src="static/enter.png"></li></a>
+    {% endif %}
+{% endblock %}
+
+{% block logout %}
+{% if user %}
+    <a href="/logout"><li><img class="logout-img" src="/static/sair.png"></li></a>
+{% endif %}
+{% endblock %}
+
+
+
+
+{% block body %}
+    <div class="container alljogadores-div">
+        <div class="resultado-pesquisa container">
+            <h1>Resultados para: "{{ jogador }}"</h1>
+        </div>
+        {% for row in jogadores %}
+            {% if row[0] != 1 %}
+            <div class="jogadores-card card text-center" style="width: 13rem; display:inline-block;">
+                <img class="card-img-top" src="/static/profile.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ row[1] }}  {{row[2]}}</h5>
+                    <ul>
+                        <li>Genêro: {{ row[5] }}</li>
+                        <li>Idade: {{ row[6] }}</li>
+                        {% if row[7] != none %}
+                            <li>Time: {{ row[7] }}</li>
+                        {% else %}
+                            <li>Time: Sem time</li>
+                        {% endif %}
+                    </ul>
+                    <a href="/jogadores/{{row[3]}}" class="btn btn-primary">Ver perfil</a>
+                </div>
+            </div> 
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

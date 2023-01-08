@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Jogador
+{% endblock %}
+
+{% block log %}
+    {% if user %}
+        <a href="/jogadores/{{ username }}"><li>{{ username }}</li></a>
+    {% else %}
+        <a href="/login"><li><img class="login" src="/static/enter.png"></li></a>
+    {% endif %}
+{% endblock %}
+
+{% block logout %}
+{% if user %}
+    <a href="/logout"><li><img class="logout-img" src="/static/sair.png"></li></a>
+{% endif %}
+{% endblock %}
+
+
+
+{% block body %}
+   <div class=" container profile-wallpaper">
+        <img class="profilepage-picture" src="/static/profile.jpg">
+        {% for row in jogadores %}
+            <h1 class="profile-name">{{ row[1] }}  {{ row [2] }}</h1>
+            <h3 class="profile-usuario">"{{ row[3] }}"</h3>
+        {% endfor %}
+   </div>
+    {% if same == true %}
+        {% for row in jogadores %}
+        <div class=" container editar-perfil">
+            <a class="editar-perfil-btn" href="/editarperfil/{{ row[3] }}"><h4>Editar Informações do Perfil</h4></a>
+        </div>
+        {% endfor %}
+    {% endif %}
+    <h4 class="time-atual-h4">Time atual: </h4>
+   <div class="profile-body">
+        <div class="container main_profile_container">
+            {% for row in jogadores %}
+            
+                <ul class="lista1-perfil list-group list-group-flush">
+                    <li class="list-group-item">Nacionalidade
+                        <span class="nacionalidade-perfil"><img class="bandeira-nacionalidade-perfil" src="/static/Bnadeira Brasil.png"></span>
+                    </li>
+                    <li class="list-group-item">Cidade natal
+                        <span class="cidade-perfil">Santos</span>
+                    </li>
+                    <li class="list-group-item">Gênero
+                        <span class="genero-perfil">{{ row[5] }}</span>
+                    </li>
+                    <li class="list-group-item">Idade
+                        <span class="idade-perfil">{{ row[6] }}</span>
+                    </li>
+                    <li class="list-group-item">Altura
+                        {% for rowi in infos %}
+                        <span class="altura-perfil">{{ rowi [1] }}Cm</span>
+                        {% endfor %}
+                    </li>
+                    <li class="list-group-item">peso
+                        {% for rowi in infos %}
+                        <span class="peso-perfil">{{ rowi [2] }}Kg</span>
+                        {% endfor %}
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+
+        <div class="time-atual-jogador">
+            {% if semtime == true %}
+                <h1>SEM TIME</h1>
+            {% else %}
+                {% for row in time %}
+                    <div class="times-card card text-center times-card-profile" style="width: 18rem; display:inline-block">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ row[1] }}</h5>
+                            <ul>
+                                <li>{{ row[1] }}</li>
+                                <li>{{ row[2] }}</li>
+                                <li>{{ row[3] }}</li>
+                            </ul>
+                            <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                        </div>
+                    </div>
+                {% endfor %} 
+            {% endif %}
+        </div>
+
+   </div>
+{% endblock %}

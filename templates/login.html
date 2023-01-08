@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login Page
+{% endblock %}
+
+
+{% block body %}
+    <div class="container login_container">
+        <div class="container login_list">
+            <ul>
+                <li>
+                    Não tem uma conta ainda? <a class="register_btn" href="/register">Criar conta</a>
+                </li>
+                <li>
+                    <a class="forgot_btn" href="/forgotpassword">Esqueci a senha</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container div_login_btns">
+            <form method="post">
+                <div class="mb-3">
+                    {{ form.hidden_tag() }}
+                    {{ form.email(placeholder="Email", id="email", autocomplete="off", class="form-control mx-auto w-auto")}}
+                </div>
+                <div class="mb-3">
+                    {{ form.senha(placeholder="senha", id="password", autocomplete="off", class="form-control mx-auto w-auto") }}
+                </div>
+                <div class="mb-3">
+                    {{form.submit(class="btn_login btn btn-primary")}}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

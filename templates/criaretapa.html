@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Criar Time
+{% endblock %}
+
+
+{% block body %}
+    <div class="container criar_etapa_container">
+        <div class="container div_register_btns">
+            <form method="post">
+                <div class="nome do time mb-3">
+                    {{ form.hidden_tag() }}
+                    {{ form.local(placeholder="Local", autocomplete="off", class="form-control mx-auto w-auto") }}
+                </div>
+                <div class="categoria mb-3">
+                    {{form.dia(placeholder="Dia", autocomplete="off", class="form-control mx-auto w-auto")}}
+                </div>
+                <div class="categoria mb-3">
+                    {{ form.mes(placeholder="Mês", autocomplete="off", class="form-control mx-auto w-auto")}}
+                </div>
+                <div class="categoria mb-3">
+                    {{ form.ano(placeholder="Ano", autocomplete="off", class="form-control mx-auto w-auto")}}
+                </div>
+                <div class="cirat-time-btn mb-3">
+                    {{form.horario(class="btn btn-primary")}}
+                </div>
+                <div class="cirat-time-btn mb-3">
+                    {{form.submit(class="btn btn-primary")}}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

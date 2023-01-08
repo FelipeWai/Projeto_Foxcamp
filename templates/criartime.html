@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Criar Time
+{% endblock %}
+
+
+{% block body %}
+    <div class="container criar_time_container">
+        <div class="container div_register_btns">
+            <form method="post">
+                <div class="nome do time mb-3">
+                    <input type="text" placeholder="Nome do time" name="nome" id="nome" autocomplete="off" autofocus class="form-control mx-auto w-auto" required>
+                </div>
+                <div class="categoria mb-3">
+                    <label for="categoria" class="label-categoria">Categoria</label>
+                    <select name="select-categoria" class="select-categoria" class="form-select" aria-label="Default select example">
+                        <option selected disabled value="">Categoria</option>
+                        <option name="U18">U18</option>
+                        <option name="U23">U23</option>
+                        <option name="OPEN">Open</option>
+                    </select>
+                </div>
+                <div class="categoria mb-3">
+                    <label for="categoria" class="label-genero">Gênero</label>
+                    <select name="select-genero" class="select-genero" class="form-select" aria-label="Default select example">
+                        <option selected disabled value="">Gênero</option>
+                        <option name="Masculino">Masculino</option>
+                        <option nome="Feminino">Feminino</option>
+                    </select>
+                </div>
+                <div class="cirat-time-btn mb-3">
+                    <button id="btn_criar_time" type="submit" class="btn btn-primary">Criar time</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

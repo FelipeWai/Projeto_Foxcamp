@@ -1,0 +1,286 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Etapa 
+{% endblock %}
+
+{% block log %}
+    {% if user %}
+        <a href="/jogadores/{{ username }}"><li>{{ username }}</li></a>
+    {% else %}
+        <a href="/login"><li><img class="login" src="/static/enter.png"></li></a>
+    {% endif %}
+{% endblock %}
+
+{% block logout %}
+{% if user %}
+    <a href="/logout"><li><img class="logout-img" src="/static/sair.png"></li></a>
+{% endif %}
+{% endblock %}
+
+
+
+{% block body %}
+    <div class="container etapa-main-content">
+        {% if user == 1 %}
+            {% if ativa != 1 %}
+                <div class="container criar-time">
+                    <span class="deseja-criar-time">Abrir inscrições</span>
+                    <br>
+                    {% for row in etapa %}
+                    <a href="/abririnscricoes/{{ row[0] }}" class="criar-time-link">Abrir aqui</a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="container criar-time">
+                    <span class="deseja-criar-time">Fechar inscrições</span>
+                    <br>
+                    {% for row in etapa %}
+                    <a href="/fecharinscricoes/{{ row[0] }}" class="criar-time-link">Fechar aqui</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <br>
+            <div class="container criar-time">
+                <span class="deseja-criar-time">Informações</span>
+                <br>
+                {% for row in etapa %}
+                <a href="/adicionarinfosetapa/{{ row[0] }}" class="criar-time-link">Adicionar aqui</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br>
+
+        {% if user != 1 %}
+            {% if ativa == 1 %}
+                <div class="container criar-time">
+                    <span class="deseja-criar-time">inscrever um time</span>
+                    <br>
+                    {% for row in etapa %}
+                        <a href="/inscrevertime/{{ row[0] }}" class="criar-time-link">Crie aqui</a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <h5 class="inscricoesfechadas">Inscrições fechadas</h5>
+            {% endif %}
+        {% endif %}
+
+        <div class="container local-div">
+            <h1>Informações do evento: </h1>
+            {% for row in etapa %}
+                <h4>Local: {{ row[1] }}</h4>
+                <h4>Data: {{ row[2] }}/{{ row[3] }}/{{ row[4] }}</h4>
+                <h4>Horário: {{ row[5] }}</h4>
+            {% endfor %}
+        </div>
+        <br><br><br>
+
+        <div class="container timesparticipantes-div">
+            
+            <h1>Times participando:</h1>
+            {% for row in time1 %}
+                {% if user == row[4] %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                        {% for id in etapa %}
+                        {% if ativa == 1 %}
+                        <a href="/excluirtime/{{id[0]}}/{{row[0]}}" class="btn btn-danger">Desinscrever time</a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+
+            {% for row in time2 %}
+                {% if user == row[4] %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                        {% for id in etapa %}
+                        {% if ativa == 1 %}
+                        <a href="/excluirtime/{{id[0]}}/{{row[0]}}" class="btn btn-danger">Desinscrever time</a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+
+            {% for row in time3 %}
+                {% if user == row[4] %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                        {% for id in etapa %}
+                        {% if ativa == 1 %}
+                        <a href="/excluirtime/{{id[0]}}/{{row[0]}}" class="btn btn-danger">Desinscrever time</a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+
+            {% for row in time4 %}
+                {% if user == row[4] %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                        {% for id in etapa %}
+                        {% if ativa == 1 %}
+                        <a href="/excluirtime/{{id[0]}}/{{row[0]}}" class="btn btn-danger">Desinscrever time</a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+
+            {% for row in time5 %}
+                {% if user == row[4] %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                        {% for id in etapa %}
+                        {% if ativa == 1 %}
+                        <a href="/excluirtime/{{id[0]}}/{{row[0]}}" class="btn btn-danger">Desinscrever time</a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+
+            {% for row in time6 %}
+                {% if user == row[4] %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                        {% for id in etapa %}
+                        {% if ativa == 1 %}
+                        <a href="/excluirtime/{{id[0]}}/{{row[0]}}" class="btn btn-danger">Desinscrever Time</a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="times-card card text-center" style="width: 18rem; display:inline-block">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}</h5>
+                        <ul>
+                            <li>{{ row[1] }}</li>
+                            <li>{{ row[2] }}</li>
+                            <li>{{ row[3] }}</li>
+                        </ul>
+                        <a href="/times/{{row[1]}}" class="btn btn-primary">Ver time</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Jogador
+{% endblock %}
+
+{% block log %}
+    {% if user %}
+        <a href="/jogadores/{{ username }}"><li>{{ username }}</li></a>
+    {% else %}
+        <a href="/login"><li><img class="login" src="/static/enter.png"></li></a>
+    {% endif %}
+{% endblock %}
+
+{% block logout %}
+{% if user %}
+    <a href="/logout"><li><img class="logout-img" src="/static/sair.png"></li></a>
+{% endif %}
+{% endblock %}
+
+
+
+{% block body %}
+   <div class=" container profile-wallpaper">
+        <img class="profilepage-picture" src="/static/profile.jpg">
+        {% for row in jogadores %}
+            <h1 class="profile-name">{{ row[1] }}  {{ row [2] }}</h1>
+            <a href="/editar/usuario/{{ row[3] }}" class="edit-profile-link"><h3 class="profile-usuario-edit">"{{ row[3] }}"</h3></a>
+        {% endfor %}
+   </div>
+   <div class="profile-body">
+        <div class="container main_profile_container">
+            {% for row in jogadores %}
+            
+                <ul class="lista1-perfil list-group list-group-flush">
+                    <li class="list-group-item">Nacionalidade
+                        <span class="nacionalidade-perfil"><img class="bandeira-nacionalidade-perfil" src="/static/Bnadeira Brasil.png"></span>
+                    </li>
+                    <li class="list-group-item">Cidade natal
+                        <span class="cidade-perfil">Santos</span>
+                    </li>
+                    <li class="list-group-item">Gênero
+                        <a href="#" class="edit-profile-link"><span class="genero-perfil-edit">{{ row[5] }}</span></a>
+                    </li>
+                    <li class="list-group-item">Idade
+                        <a href="/editar/idade/{{ row[3] }}" class="edit-profile-link"><span class="idade-perfil-edit">{{ row[6] }}</span></a>
+                    </li>
+                    <li class="list-group-item">Altura
+                        {% if nulo == true %}
+                            <a href="/editar/altura/{{ row[3] }}" class="edit-profile-link"><span class="altura-perfil-edit">"Nulo"</span></a>
+                        {% else %}
+                            {% for rowi in infos %}
+                                <a href="/editar/altura/{{ row[3] }}" class="edit-profile-link"><span class="altura-perfil-edit">{{ rowi [1] }}</span></a>
+                            {% endfor %}
+                        {% endif %}
+                    </li>
+                    <li class="list-group-item">peso
+                        {% if nulo == true %}
+                            <a href="/editar/peso/{{ row[3] }}" class="edit-profile-link"><span class="peso-perfil-edit">"Nulo"</span></a>
+                        {% else %}
+                            {% for rowi in infos %}
+                                <a href="/editar/peso/{{ row[3] }}" class="edit-profile-link"><span class="peso-perfil-edit">{{ rowi [2] }}</span></a>
+                            {% endfor %}
+                        {% endif %}
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+   </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Criar Time
+{% endblock %}
+
+
+{% block body %}
+    <div class="container criar_time_container">
+        <div class="container div_editar_usuario">
+            <h4>Editar idade</h4>
+            <form method="post">
+                <div class="usuario-edit mb-3">
+                    <input type="number" placeholder="Idade" name="idade" id="idade" autocomplete="off" autofocus class="form-control mx-auto w-auto" required>
+                </div>
+                <div class="editar-usuario-btn mb-3">
+                    <button id="btn_criar_time" type="submit" class="btn btn-primary">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

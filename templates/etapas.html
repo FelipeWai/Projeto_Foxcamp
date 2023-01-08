@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block log %}
+    {% if user %}
+        <a href="/jogadores/{{ username }}"><li>{{ username }}</li></a>
+    {% else %}
+        <a href="/login"><li><img class="login"src="static/enter.png"></li></a>
+    {% endif %}
+{% endblock %}
+
+{% block logout %}
+{% if user %}
+    <a href="/logout"><li><img class="logout-img" src="/static/sair.png"></li></a>
+{% endif %}
+{% endblock %}
+
+
+
+{% block body %}
+    <div class="container etapas-main">
+        {% if user == 1 %}
+        <div class="container criar-time">
+            <span class="deseja-criar-time">criar uma etapa</span>
+            <br>
+            <a href="/criaretapa" class="criar-time-link">Crie aqui</a>
+        </div>
+        {% endif %}
+        <h1>Etapas:</h1>
+        {% for row in etapas %}
+            <div class="row" style="display:inline-block;">
+                <div class="card card-etapas">
+                    <div class="card-body">
+                        <h5 class="card-title">Etapa {{ row[0] }} - {{ row[1] }}</h5>
+                        <p class="card-text">Veja mais informações clicando no link abaixo.</p>
+                        <a href="/etapas/{{row[0]}}" class="btn btn-primary">Etapa</a>
+                        {% if user == 1 %}
+                            <a href="/excluiretapa/{{row[0]}}" class="btn btn-danger">Excluir etapa</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

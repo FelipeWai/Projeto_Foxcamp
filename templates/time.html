@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    {% for row in time %}
+        {{ row[1] }}
+    {% endfor %}
+{% endblock %}
+
+{% block log %}
+    {% if user %}
+        <a href="/jogadores/{{ username }}"><li>{{ username }}</li></a>
+    {% else %}
+        <a href="/login"><li><img class="login" src="/static/enter.png"></li></a>
+    {% endif %}
+{% endblock %}
+
+{% block logout %}
+{% if user %}
+    <a href="/logout"><li><img class="logout-img" src="/static/sair.png"></li></a>
+{% endif %}
+{% endblock %}
+
+
+
+{% block body %}
+    {% if same == true %}
+    <div class="container time-div">
+        {% for row in time %}
+         <h1>{{ row[1] }}</h1>
+         <h4>{{ row[2] }}  {{ row[3] }}</h4>
+        <div class="jogadores-h1-time-div">
+            <h1>Jogadores:</h1>
+            <a href="/adicionarjogador/{{ row[1] }}">Adicionar jogador</a>
+        </div>
+        {% endfor %}
+        <div class="jogadores-time-div">
+            {% for row in jogadores %}
+                <div class="jogadores-card card text-center" style="width: 13rem; display:inline-block;">
+                    <img class="card-img-top" src="/static/profile.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}  {{row[2]}}</h5>
+                        <ul>
+                            <li>Genêro: {{ row[5] }}</li>
+                            <li>Idade: {{ row[6] }}</li>
+                        </ul>
+                        <a href="/jogadores/{{row[3]}}" class="btn btn-primary">Ver perfil</a>
+                        <a href="/excluirjogador/{{ row[3] }}" class="btn btn-danger">Excluir</a>
+                    </div>
+                </div> 
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="container time-div">
+        {% for row in time %}
+         <h1>{{ row[1] }}</h1>
+         <h4>{{ row[2] }}  {{ row[3] }}</h4>
+        <div class="jogadores-h1-time-div">
+            <h1>Jogadores:</h1>
+        </div>
+        {% endfor %}
+        <div class="jogadores-time-div">
+            {% for row in jogadores %}
+                <div class="jogadores-card card text-center" style="width: 13rem; display:inline-block;">
+                    <img class="card-img-top" src="/static/profile.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row[1] }}  {{row[2]}}</h5>
+                        <ul>
+                            <li>Genêro: {{ row[5] }}</li>
+                            <li>Idade: {{ row[6] }}</li>
+                        </ul>
+                        <a href="/jogadores/{{row[3]}}" class="btn btn-primary">Ver perfil</a>
+                    </div>
+                </div> 
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
