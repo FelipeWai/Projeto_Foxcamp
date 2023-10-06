@@ -136,22 +136,22 @@ def login():
 # **pictures from the project**
 
 ## **Login page** 
-![Login page](pictures\login_page.png) 
+![Login page](pictures/login_page.png) 
 ## **Register page**
-![Registration page](pictures\register_page.png)
+![Registration page](pictures/register_page.png)
 ## **Search/Results pages**
-![Search page](pictures\players_page.png)
-![Result page](pictures\all_players.png)
-![Result page](pictures\Result_page.png)
+![Search page](pictures/players_page.png)
+![Result page](pictures/all_players.png)
+![Result page](pictures/Result_page.png)
 ## **Team pages**
-![Teams page](pictures\Teams_page.png)
-![Team page](pictures\Team_page.png)
+![Teams page](pictures/Teams_page.png)
+![Team page](pictures/Team_page.png)
 ## **Phase pages**
-![Phases page](pictures\phases_page.png)
-![Phase page](pictures\Phase_page.png)
+![Phases page](pictures/phases_page.png)
+![Phase page](pictures/Phase_page.png)
 
 ## **Profile page**
-![Profile page](pictures\Profile_page.png)
+![Profile page](pictures/Profile_page.png)
 
 # **Video Demo**
 ### Here you can watch my [video demo](https://youtu.be/R5Ee2J4U6tA) for this project
